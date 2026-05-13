@@ -210,23 +210,6 @@ By default:
 
 These tables are generated at runtime by `mercury/qam.py`.
 
-## Model Architecture
-
-The AWF foundation model is implemented in `mercury/model.py`.
-
-The main components are:
-
-- `DistTokenMLP`: embeds the modulation-dependent distribution token;
-- `PerceiverSetEncoder`: encodes variable-size unordered channel sets;
-- `BipartiteMP`: performs message passing between channel nodes and constraint nodes;
-- `Heads`: predicts initial variables and learned step sizes;
-- `MercuryFoundationSolver`: combines set encoding, message passing, and learned primal-dual rollout.
-
-The model outputs:
-
-- transmit power allocation `p`;
-- adversarial interference allocation `n`;
-- dual variables associated with the linear constraints.
 
 ## Training Configuration
 
@@ -242,13 +225,6 @@ epochs = 1
 steps_per_epoch = 100
 ```
 
-It also uses a curriculum over channel dimensions:
-
-```text
-Phase 1: m in [32, 96]
-Phase 2: m in [32, 96] and [128, 256]
-Phase 3: m in [32, 96], [128, 256], and [384, 512]
-```
 
 The script saves a final checkpoint named like:
 
@@ -256,21 +232,6 @@ The script saves a final checkpoint named like:
 awf_model_<timestamp>_final.pt
 ```
 
-For paper-scale training, use a longer schedule and more repeated evaluations.
-
-## Baselines and Metrics
-
-Baseline solvers and best-response utilities are implemented in `mercury/optimization.py`.
-
-The main evaluation metrics are:
-
-- `J`: normalized mutual-information objective;
-- `InEq`: average inequality violation of `Ap <= p_hat`;
-- `KKT_p`: transmit-side stationarity residual;
-- `KKT_n`: interference-side stationarity residual;
-- `runtime_ms`: runtime in milliseconds.
-
-Mirror-Prox style projected primal-dual iterations are used as the main iterative baseline.
 
 ## Reproducibility Notes
 
