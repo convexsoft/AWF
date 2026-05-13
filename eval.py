@@ -13,13 +13,19 @@ from mercury.utils import logspace_gamma_grid, seed_all
 def load_model(checkpoint_path: str, device: str):
     table_gammas = logspace_gamma_grid(-10, 30, 128, device=device)
     tables = build_tables(device=device, gammas=table_gammas, n_samples_per_gamma=15000)
-    model = MercuryFoundationSolver(table_gammas=table_gammas, tables=tables, modulation_id_order=MODULATION_ID_ORDER).to(device)
+    model = MercuryFoundationSolver(
+        table_gammas=table_gammas,
+        tables=tables,
+        modulation_id_order=MODULATION_ID_ORDER
+    ).to(device)
 
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
+
     if isinstance(checkpoint, dict) and "model_state_dict" in checkpoint:
         model.load_state_dict(checkpoint["model_state_dict"])
     else:
         model.load_state_dict(checkpoint)
+
     model.eval()
     return model, tables, table_gammas
 
