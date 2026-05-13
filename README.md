@@ -298,29 +298,6 @@ For more stable results, run multiple repetitions and report the mean and standa
 
 This repository contains the core implementation and scripts needed to reproduce the main experimental workflow in the manuscript. Additional internal scripts for large-scale hyperparameter sweeps and unpublished extensions are not included in this public release.
 
-## Citation
-
-If you use this code, please cite the manuscript:
-
-```bibtex
-@article{tong2026awf,
-  title   = {Adversarial Water-Filling: Theory, Algorithms, and a Wireless Foundation Model},
-  author  = {Tong, Xindi and Tan, Chee Wei and Poor, H. Vincent},
-  journal = {IEEE Journal of Selected Topics in Signal Processing},
-  year    = {2026},
-  note    = {Submitted}
-}
-```
-
-Please also cite the preliminary conference version when relevant:
-
-```bibtex
-@inproceedings{tong2025awf,
-  title  = {Adversarial Water-Filling: Minimax Resource Allocation Optimization with Proximal Decomposition in Open RAN},
-  author = {Tong, Xindi and Tan, Chee Wei and Poor, H. Vincent},
-  year   = {2025}
-}
-```
 
 ## License
 
