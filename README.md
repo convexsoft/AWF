@@ -28,6 +28,7 @@ AWF/
 ├── train.py                  # Main training and evaluation driver
 ├── eval.py                   # Checkpoint evaluation script
 ├── requirements.txt          # Python dependencies
+├── awf_model_final.pt        # Model weight
 ├── LICENSE                   # Apache-2.0 license
 └── mercury/
     ├── constants.py          # Modulation definitions and train/test groups
