@@ -4,7 +4,7 @@ This repository provides the learned Adversarial Water-Filling (AWF) solver for 
 
 ## Overview
 
-AWF allocates transmit power across channels against an interference allocation under power budgets and linear constraints. The learned solver combines a permutation-compatible channel encoder, constraint-aware bipartite message passing, and a 64-iteration primal-dual extragradient rollout. The released model applies Euclidean simplex projection to both the transmit allocation `p` and interference allocation `n` at each half-step and corrected step. The dual variables enforce the linear constraints through their updates.
+AWF allocates transmit power across channels against an interference allocation under power budgets and linear constraints. The learned solver combines a permutation-compatible channel encoder, constraint-aware bipartite message passing, and a 64-iteration primal-dual extragradient rollout. 
 
 The implementation supports 16QAM, 64QAM, and 256QAM through modulation-specific MMSE and mutual-information lookup tables. Training-style instances are generated online; the evaluation scripts can vary channel size, modulation, and constraint structure.
 
