@@ -43,7 +43,7 @@ Use Python 3.10 or newer. In the repository root, install the dependencies in yo
 python -m pip install -r requirements.txt
 ```
 
-The required packages are PyTorch and NumPy. CUDA is optional; the scripts use CUDA when available and otherwise run on CPU. The bundled checkpoint was trained with Python 3.11 and FP32.
+The required packages are PyTorch and NumPy. CUDA is optional; the scripts use CUDA when available and otherwise run on CPU. 
 
 ## Pretrained Checkpoint
 
@@ -148,9 +148,6 @@ python -B scripts/weighted_size_pattern.py --instances-per-size 10
 
 For a paired AWF/Mirror-Prox evaluation of a weighted objective, add `--weight-pattern random_positive`, `grouped`, or `wide_two_level` to `scripts/evaluate_awf_vs_mirror_prox.py`.
 
-## Reproducibility Notes
-
-Instance generation and training are stochastic. Record the seed, instance count, device, and evaluation settings when comparing runs. The examples create new instances; they do not reproduce the paper's predefined test instances. Generated files go under `outputs/`, which is ignored by Git. No numerical experiment results are bundled with this repository.
 
 ## License
 
